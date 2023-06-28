@@ -1,0 +1,21 @@
+﻿@model MyViewModel
+<div>
+    <div class="flex-1 m-2">
+        <h2>All Chefs</h2>
+        <a href="chefs/create" class="btn btn-primary m3">Add A Chef</a>
+        <a href="dishes/create" class="btn btn-danger m3">Add A Dish</a>
+        @foreach(Chef c in Model.AllChefs)
+        {
+            // Calculate the person's age
+            DateTime varTime = DateTime.Now;
+            int age = varTime.Year - c.DateOfBirth.Year;
+            if (c.DateOfBirth > varTime.AddYears(-age)) age--;
+
+            <div style="border:2px solid black; margin: 25px; padding: 25px; background-color:pink;">
+                <h4>@c.FirstName @c.LastName</h4>
+                <h4>Age: @age</h4>
+                <h4>Dishes: @c.AllDishes.Count()</h4>
+            </div>
+        }
+    </div>
+</div>

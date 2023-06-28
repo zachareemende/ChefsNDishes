@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Vehicle Page";
+}
+@model MyViewModel
+<div>
+    <div class="flex-1 m-2">
+        <h2>All Dishes</h2>
+        <a href="chefs/create" class="btn btn-primary m3">Add A Chef</a>
+        <a href="dishes/create" class="btn btn-danger m3">Add A Dish</a>
+        @foreach(Dish d in Model.AllDishes)
+        {
+            <div style="border:2px solid black; margin: 25px; padding: 25px; font-weight: bold; background-color: pink;">
+                <h4>@d.Name</h4>
+                <h5>Chef: @d.Chef.FirstName @d.Chef.LastName</h5>
+                <p>Tastiness: @d.Tastiness/5</p>
+                <p>Calories: @d.Calories</p>
+                <p>Description:</p>
+                <p>@d.Description</p>
+            </div>
+        }
+    </div>
+</div>

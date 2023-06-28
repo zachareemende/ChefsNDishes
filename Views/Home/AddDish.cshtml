@@ -1,0 +1,48 @@
+@model Dish
+<div class="text-center">
+    <h1 class="display-4">Add A Dish</h1>
+    <form asp-action="NewDish" asp-controller="Home" method="post">
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input style="background-color: pink; border: 1px solid black" asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ChefId">Chef</label>
+            <select style="background-color: pink; border: 1px solid black" asp-for="ChefId" class="form-select">
+                @foreach(Chef c in ViewBag.AllChefs)
+                {
+                    <option value="@c.ChefId">@c.FirstName @c.LastName</option>
+                }
+            </select>
+            <span asp-validation-for="ChefId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tastiness"></label>
+            <select style="background-color: pink; border: 1px solid black" asp-for="Tastiness" class="form-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span asp-validation-for="Tastiness" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Calories"></label>
+            <input style="background-color: pink; border: 1px solid black" asp-for="Calories" class="form-control">
+            <span asp-validation-for="Calories" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <input style="background-color: pink; border: 1px solid black" asp-for="Description" class="form-control">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Add Dish" class="btn btn-primary m3">
+    </form>
+</div>
